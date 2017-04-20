@@ -11,8 +11,18 @@ let cats = [{
 },
 {
   id: 2,
+  name:"Mittens",
+  imgUrl: "http://thecatapi.com/api/images/get?format=src&type=gif",
+  happyStatus: "PuRuRRRRR",
+  grumpyStatus: "GADFASW",
+  feralStatus: "HSSSSAAAAT",
+  goneStatus: "Mittens left you.",
+  petCount: 0
+},
+{
+  id: 3,
   name: "Whiskers",
-  imgUrl: "https://unsplash.it/200/200",
+  imgUrl: "http://thecatapi.com/api/images/get?format=src&type=gif",
   happyStatus: "meeeeow",
   grumpyStatus: "MROWL",
   feralStatus: "HSSSSAAASRWL",
@@ -26,6 +36,7 @@ function petCat(catId) {
   let catStatus = document.getElementById("catStatus" + catId);
   let catButton = document.getElementById("pet" + catId);
   let catPic = document.getElementById("catPic" + catId);
+  let catName = document.getElementById("catName" + catId);
   let targetCat = getCatById(catId);
 
   targetCat.petCount++;
@@ -58,6 +69,7 @@ function treatCat(catId) {
   let catStatus = document.getElementById("catStatus" + catId);
   let catButton = document.getElementById("pet" + catId);
   let catPic = document.getElementById("catPic" + catId);
+  let catName = document.getElementById("catName" + catId);
   let targetCat = getCatById(catId);
 
   targetCat.petCount = 0;
@@ -85,8 +97,12 @@ function drawCats(listOfCats) {
       type="button"
       onclick="treatCat(${cat.id})">
       Use a Treat</button>
+    <h1>Pet Count:</h1>
     <h1
       id="petCount${cat.id}">0</h1>
+      <h2>Name:</h2>
+    <h2
+      id="catName${cat.id}">${cat.name}</h2>  
     <h2
       id="catStatus${cat.id}">${cat.happyStatus}</h2>
   </div>
